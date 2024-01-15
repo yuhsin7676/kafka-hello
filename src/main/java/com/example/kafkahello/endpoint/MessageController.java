@@ -3,6 +3,7 @@ package com.example.kafkahello.endpoint;
 import com.example.kafkahello.dto.TTopicDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -28,6 +29,7 @@ public class MessageController {
     }
 
     @PostMapping(value = "/publish")
+    @Operation(summary = "Отправляет сообщение в тему t-topic. Продюсер, который в этом же приложении, прочитает это сообщение и выведет в консоль.")
     protected void publish() throws JsonProcessingException {
         TTopicDto tTopicDto = new TTopicDto(UUID.randomUUID(), LocalDateTime.now(), "1", "hello", i++);
         kafkaTemplate.send(topic, objectMapper.writeValueAsString(tTopicDto));

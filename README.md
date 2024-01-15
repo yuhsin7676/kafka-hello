@@ -10,6 +10,8 @@
 docker-compose up
 ```
 
+Приложение можно запустить из Идеи
+
 Просмотр эндпоинтов:
 
 - http://localhost:8083/swagger-ui/index.html
