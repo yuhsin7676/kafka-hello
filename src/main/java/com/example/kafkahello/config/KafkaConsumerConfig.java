@@ -21,9 +21,6 @@ public class KafkaConsumerConfig {
     private String bootstrapServers;
 
     public Map<String, Object> consumerConfig() {
-
-        System.out.println("11111111 " + bootstrapServers + " 111111111");
-
         Map<String, Object> properties = new HashMap<>();
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringSerializer.class);
